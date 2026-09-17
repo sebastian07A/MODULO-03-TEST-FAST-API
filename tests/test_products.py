@@ -161,8 +161,7 @@ def test_delete_product():
     response = client.delete("/products/1")
 
     assert response.status_code == 204
-    data = response.json()
-    assert data["id"] == 1
+    assert response.content == b""
 
     # Verify that the product is actually deleted
     get_response = client.get("/products/1")
